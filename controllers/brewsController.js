@@ -8,5 +8,10 @@ module.exports = {
       .then(brews => res.json(brews))
       .catch(err => console.error(err));
   },
-  
+  createBrew: (req, res) => {
+    Brew
+      .create(req.body)
+      .then(brewModel => res.json(brewModel))
+      .catch(err => console.error(err));
+  }
 }
