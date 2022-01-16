@@ -18,7 +18,9 @@ app.use(routes);
 mongoose.connect('mongodb://localhost:27017/brews', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+})
+  .then(() => console.log('Connected to Brews DB'))
+  .catch(err => console.error(err));
 
 // Server Listener
 app.listen(PORT, () => {
