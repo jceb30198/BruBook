@@ -18,7 +18,7 @@ body{
 
 .form {
   max-width: 450px;
-  height: 500px;
+  height: 475px;
   margin: 20vh auto;
   padding: 1rem;
   border-radius: 25px;
@@ -43,4 +43,18 @@ body{
   height: 30px;
   margin: 1rem auto;
   outline-color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+form > input {
+  border-radius: 25px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: block;
+  border: none;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 75%;
+  background-color: var(--dark);
+  color: var(--primary)
 }
