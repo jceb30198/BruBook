@@ -24,7 +24,16 @@ export default {
       .then(res => res.json())
       .catch(err => console.error(err));
   },
+  // Update Previous Brew Information
   updateBrew: (id) => {
-    fetch(`http://localhost:3001/api/brews/${id}`)
+    fetch(`http://localhost:3001/api/brews/update/${id}`, {
+      method: 'PUT'
+    })
+      .then(res => res.json())
+      .catch(err => console.error(err));
+  },
+  // Remove Previous Brew from DB
+  deleteBrew: (id) => {
+    fetch(`http://localhost:3001/api/brews/remove/${id}`)
   }
 }
