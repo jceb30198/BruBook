@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   
+  // Retrieves All Previous Brews
   useEffect(() => {
     API.getBrews();
   }, [])
