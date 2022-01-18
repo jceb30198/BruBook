@@ -1,0 +1,80 @@
+:root {
+  --primary: #66fcf1;
+  --secondary: #45a29e;
+  --dark: #0b0c10;
+  --light: #c5c6c7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background-color: var(--dark);
+}
+
+.form {
+  max-width: 450px;
+  height: 475px;
+  margin: 20vh auto 4rem auto;
+  padding: 1rem;
+  border-radius: 25px;
+  background: var(--light);
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+}
+
+.form-group input {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 30px;
+  margin: 1rem auto;
+  outline-color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+form > input {
+  border-radius: 25px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: block;
+  border: none;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 75%;
+  background-color: var(--dark);
+  color: var(--primary)
+}
+
+.display-abv {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.display-brews {
+  margin: 1.5rem auto;
+  background: var(--light);
+  color: var(--secondary);
+  max-width: 350px;
+  height: 100%;
+}
+
+.display-brews li {
+  list-style: none;
+  text-align: center;
+}
