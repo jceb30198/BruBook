@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
+import API from './utils/API';
 import './App.css';
 
 function App() {
+  
+  useEffect(() => {
+    API.getBrews();
+  }, [])
+
   return (
     <div>
       <form className="form">
