@@ -19,7 +19,7 @@ body{
 .form {
   max-width: 450px;
   height: 475px;
-  margin: 20vh auto;
+  margin: 20vh auto 4rem auto;
   padding: 1rem;
   border-radius: 25px;
   background: var(--light);
@@ -57,4 +57,24 @@ form > input {
   width: 75%;
   background-color: var(--dark);
   color: var(--primary)
+}
+
+.display-abv {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.display-brews {
+  margin: 1.5rem auto;
+  background: var(--light);
+  color: var(--secondary);
+  max-width: 350px;
+  height: 100%;
+}
+
+.display-brews li {
+  list-style: none;
+  text-align: center;
 }
