@@ -1,0 +1,27 @@
+:root {
+  --primary: #66fcf1;
+  --secondary: #45a29e;
+  --dark: #0b0c10;
+  --light: #c5c6c7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background-color: var(--dark);
+}
+
+.form {
+  max-width: 450px;
+  height: 500px;
+  margin: 20vh auto;
+  padding: 1rem;
+  border-radius: 25px;
+  background: var(--light);
+}
+
