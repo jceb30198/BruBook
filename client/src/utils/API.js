@@ -24,4 +24,7 @@ export default {
       .then(res => res.json())
       .catch(err => console.error(err));
   },
+  updateBrew: (id) => {
+    fetch(`http://localhost:3001/api/brews/${id}`)
+  }
 }
