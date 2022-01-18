@@ -1,6 +1,14 @@
+import { useEffect } from 'react';
+import API from './utils/API';
 import './App.css';
 
 function App() {
+  
+  // Retrieves All Previous Brews
+  useEffect(() => {
+    API.getBrews();
+  }, [])
+
   return (
     <div>
       <form className="form">
