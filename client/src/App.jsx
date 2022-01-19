@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import API from './utils/API';
 import './App.css';
 
@@ -23,8 +23,9 @@ function App() {
       originalGrav: Number(OG.value),
       finalGrav: Number(FG.value),
       abv:((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
-    }
+    };
     
+    // Post and Set States
     API.postBrew(data);
     setAbv(data.abv);
     setBrews([...brews, data]);
