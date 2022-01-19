@@ -2,23 +2,20 @@
 export default {
   // Gets All Brew Data
   getBrews: () => {
-    fetch('http://localhost:3001/api/brews')
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.error(err));
+    return fetch('http://localhost:3001/api/brews').then(res => res.json());
   },
   // Posts New Brew to DB
-  postBrew: () => {
+  postBrew: (data) => {
     fetch('http://localhost:3001/api/brews/new', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify({
-        name:,
-        originalGrav:,
-        finalGrav:,
-        abv:
+        name: data.name,
+        originalGrav: data.originalGrav,
+        finalGrav: data.finalGrav,
+        abv: data.abv
       })
     })
       .then(res => res.json())
