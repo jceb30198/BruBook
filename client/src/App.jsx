@@ -1,13 +1,17 @@
-import { useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import API from './utils/API';
 import './App.css';
 
 function App() {
+  // State
+  const [brews, setBrews] = useState([]);
   
   // Retrieves All Previous Brews
   useEffect(() => {
-    API.getBrews();
-  }, [])
+    API.getBrews()
+    .then(data => setBrews(data))
+    .catch(err => console.error(err));
+  }, []);
 
   return (
     <div>
@@ -40,7 +44,20 @@ function App() {
       </div>
       <div className="display-brews">
         <ul>
-          <li>PREVIOUS BEER DATA GOES HERE</li>
+          {
+            !brews ? null : brews.map((brew) => {
+              return (
+                <li key={brew._id}>
+                  <h3>{brew.name}</h3>
+                  <ul>
+                    <li>{brew.originalGrav}</li>
+                    <li>{brew.finalGrav}</li>
+                    <li>{brew.abv}</li>
+                  </ul>
+                </li>
+              )
+            })
+          }
         </ul>
       </div>
     </div>
