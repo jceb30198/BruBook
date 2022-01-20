@@ -47,7 +47,8 @@ function App() {
           <input 
           id="beer-name" 
           name="Beer Name" 
-          type="text" />
+          type="text"
+          placeholder="Experimental Lager" />
         </div>
         <div className="form-group">
           <label htmlFor="original-gravity">Original Gravity (OG):</label>
@@ -55,6 +56,7 @@ function App() {
           id="original-gravity"
           name="Original Gravity"
           type="number"
+          placeholder="1.050"
           step="0.001" />
         </div>
         <div className="form-group">
@@ -63,6 +65,7 @@ function App() {
           id="final-gravity"
           name="Final Gravity"
           type="number"
+          placeholder="1.005"
           step="0.001" />
         </div>
         <input type="submit" value="Calculate ABV"/>
