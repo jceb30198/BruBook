@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   // State
   const [brews, setBrews] = useState([]);
-  const [abv, setAbv] = useState(0)
+  const [abv, setAbv] = useState(0);
   
   // Retrieves All Previous Brews
   useEffect(() => {
@@ -20,16 +20,20 @@ function App() {
 
     const data = {
       name: brewName.value,
-      originalGrav: Number(OG.value),
-      finalGrav: Number(FG.value),
-      abv:((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
+      originalGrav: Number(OG.value).toFixed(3),
+      finalGrav: Number(FG.value).toFixed(3),
+      abv: ((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
     };
     
     // Post and Set States
     API.postBrew(data);
     setAbv(data.abv);
     setBrews([...brews, data]);
-    
+
+    // Reset Values
+    brewName.value = '';
+    OG.value = '';
+    FG.value = '';
     e.preventDefault();
   }
 
@@ -69,13 +73,13 @@ function App() {
       <div className="display-brews">
         <ul>
           {
-            !brews ? null : brews.map((brew) => {
+            brews.map((brew) => {
               return (
                 <li key={ brew._id }>
                   <h3>{ brew.name }</h3>
                   <ul>
-                    <li>{ brew.originalGrav }</li>
-                    <li>{ brew.finalGrav }</li>
+                    <li>{ brew.originalGrav.toFixed(3) }</li>
+                    <li>{ brew.finalGrav.toFixed(3) }</li>
                     <li>{ brew.abv }%</li>
                   </ul>
                 </li>
