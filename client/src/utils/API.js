@@ -31,7 +31,9 @@ export default {
   },
   // Remove Previous Brew from DB
   deleteBrew: (id) => {
-    fetch(`http://localhost:3001/api/brews/remove/${id}`)
+    fetch(`http://localhost:3001/api/brews/remove/${id}`, {
+      method: 'DELETE'
+    })
       .then(res => res.json())
       .catch(err => console.error(err));
   }

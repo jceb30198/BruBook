@@ -37,6 +37,15 @@ function App() {
     e.preventDefault();
   }
 
+  // Delete Previous Brew
+  const handleDelete = (id) => {
+    // Deletes from DB
+    API.deleteBrew(id);
+
+    // Filters out of State
+    setBrews((brews) => brews.filter(brew => brew._id !== id));
+  }
+
   return (
     <div>
       <form 
@@ -85,6 +94,9 @@ function App() {
                     <li>{ brew.finalGrav.toFixed(3) }</li>
                     <li>{ brew.abv }%</li>
                   </ul>
+                  <h3 
+                  className="delete"
+                  onClick={ () => handleDelete(brew._id) } >X</h3>
                 </li>
               )
             })
