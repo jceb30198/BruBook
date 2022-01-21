@@ -18,15 +18,23 @@ export default {
         abv: data.abv
       })
     })
-      .then(res => res.json())
+      .then(res => res.json());
   },
   // Update Previous Brew Information
-  updateBrew: (id) => {
-    return fetch(`http://localhost:3001/api/brews/update/${id}`, {
-      method: 'PUT'
+  updateBrew: (data) => {
+    return fetch(`http://localhost:3001/api/brews/update/${data.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: data.name,
+        originalGrav: data.originalGrav,
+        finalGrav: data.finalGrav,
+        abv: data.abv
+      })
     })
-      .then(res => res.json())
-      .catch(err => console.error(err));
+      .then(res => res.json());
   },
   // Remove Previous Brew from DB
   deleteBrew: (id) => {

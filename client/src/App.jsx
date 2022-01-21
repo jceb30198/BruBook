@@ -28,10 +28,10 @@ function App() {
     // Post and Set States
     setAbv(brewData.abv);
     API.postBrew(brewData)
-      .then(data => setBrews([...brews, data]));
+      .then(data => setBrews([...brews, data]))
+      .catch(err => console.error(err));
 
     // Reset Values
-    brewName.value = '';
     OG.value = '';
     FG.value = '';
     e.preventDefault();
@@ -39,14 +39,30 @@ function App() {
 
   // Edit Old Brew
   const handleEdit = (oldBrew) => {
-    console.log(oldBrew);
+    let formObj = {
+      name: document.querySelector('#beer-name').value,
+      OG: document.querySelector('#original-gravity').value,
+      FG: document.querySelector('#final-gravity').value
+    };
+
+    // Updated Brew
+    let updatedBrew = {
+      id: oldBrew._id,
+      name: oldBrew.name,
+      originalGrav: oldBrew.originalGrav,
+      finalGrav: oldBrew.finalGrav,
+      abv: ((Number(formObj.OG) - Number(formObj.FG)) * 131.25).toFixed(2)
+    }
+
+
+
+    console.log(updatedBrew);
   }
 
   // Delete Previous Brew
   const handleDelete = (id) => {
     // Deletes from DB
     API.deleteBrew(id);
-    console.log(id);
 
     // Filters out of State
     setBrews((brews) => brews.filter(brew => brew._id !== id));
@@ -96,8 +112,8 @@ function App() {
                 <li key={ brew._id }>
                   <h3>{ brew.name }</h3>
                   <ul>
-                    <li>{ brew.originalGrav }</li>
-                    <li>{ brew.finalGrav }</li>
+                    <li>{ brew.originalGrav.toFixed(3) }</li>
+                    <li>{ brew.finalGrav.toFixed(3) }</li>
                     <li>{ brew.abv }%</li>
                   </ul>
                   <h3
