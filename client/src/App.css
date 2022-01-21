@@ -12,7 +12,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
   background-color: var(--dark);
 }
 
@@ -69,13 +69,24 @@ form > input {
 
 .display-brews {
   margin: 1.5rem auto;
-  background: var(--light);
   color: var(--secondary);
   max-width: 350px;
   height: 100%;
 }
 
-.display-brews li {
+.display-brews ul > li {
   list-style: none;
   text-align: center;
+  background: var(--light);
+  margin-top: 0.5rem;
+}
+
+.edit {
+  cursor: pointer;
+  color: #00aa00;
+}
+
+.delete {
+  cursor: pointer;
+  color: #ff0000;
 }
