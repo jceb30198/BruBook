@@ -6,6 +6,10 @@ function App() {
   // State
   const [brews, setBrews] = useState([]);
   const [abv, setAbv] = useState(0);
+  const [editState, setState] = useState({
+    state:false,
+    id: '' 
+  });
   
   // Retrieves All Previous Brews
   useEffect(() => {
@@ -16,47 +20,67 @@ function App() {
 
   // Submit Handler
   const handleSubmit = (e) => {
+    // Global Function Variables
     let [ brewName, OG, FG ] = e.target;
-
-    const brewData = {
-      name: brewName.value,
-      originalGrav: Number(OG.value).toFixed(3),
-      finalGrav: Number(FG.value).toFixed(3),
-      abv: ((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
-    };
     
-    // Post and Set States
-    setAbv(brewData.abv);
-    API.postBrew(brewData)
-      .then(data => setBrews([...brews, data]))
-      .catch(err => console.error(err));
+    // Data Obj
+    let brewData = {};
 
-    // Reset Values
-    OG.value = '';
-    FG.value = '';
-    e.preventDefault();
+    if(editState) {
+      // Put Data
+      brewData = {
+        id: editState.id,
+        name: brewName.value,
+        originalGrav: Number(OG.value).toFixed(3),
+        finalGrav: Number(FG.value).toFixed(3),
+        abv: ((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
+      }
+
+      // Update Brew in DB
+      API.updateBrew(brewData);
+
+      // Change out of Edit State
+      setState({
+        state: true,
+        id: ''
+      });
+    } 
+    else {
+      // Post Data
+      brewData = {
+        name: brewName.value,
+        originalGrav: Number(OG.value).toFixed(3),
+        finalGrav: Number(FG.value).toFixed(3),
+        abv: ((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
+      }
+
+      // Post Brew to DB
+      API.postBrew(brewData)
+        .then(data => setBrews([...brews, data]))
+        .catch(err => console.error(err));
+
+      // Change State Abv
+      setAbv(brewData.abv);
+      
+      // Reset Values
+      OG.value = '';
+      FG.value = '';
+      e.preventDefault();
+    }
   }
 
   // Edit Old Brew
   const handleEdit = (oldBrew) => {
-    let formObj = {
-      name: document.querySelector('#beer-name').value,
-      OG: document.querySelector('#original-gravity').value,
-      FG: document.querySelector('#final-gravity').value
-    };
+    // Change Values for Edit State
+    document.querySelector('#beer-name').value = oldBrew.name;
+    document.querySelector('#original-gravity').value = oldBrew.originalGrav.toFixed(3);
+    document.querySelector('#final-gravity').value = oldBrew.finalGrav.toFixed(3);
 
-    // Updated Brew
-    let updatedBrew = {
-      id: oldBrew._id,
-      name: oldBrew.name,
-      originalGrav: oldBrew.originalGrav,
-      finalGrav: oldBrew.finalGrav,
-      abv: ((Number(formObj.OG) - Number(formObj.FG)) * 131.25).toFixed(2)
-    }
-
-
-
-    console.log(updatedBrew);
+    // Change to Edit State and Send Edit Data
+    setState({
+      state: true,
+      id: oldBrew._id
+    });
   }
 
   // Delete Previous Brew
@@ -72,7 +96,7 @@ function App() {
     <div>
       <form 
       className="form"
-      onSubmit={handleSubmit}>
+      onSubmit={ (e) => handleSubmit(e)}>
         <div className="form-group">
           <label htmlFor="beer-name">Name of Beer:</label>
           <input 

@@ -34,7 +34,8 @@ export default {
         abv: data.abv
       })
     })
-      .then(res => res.json());
+      .then(res => res.json())
+      .catch(err => console.error(err));
   },
   // Remove Previous Brew from DB
   deleteBrew: (id) => {
