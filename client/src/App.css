@@ -81,6 +81,12 @@ form > input {
   margin-top: 0.5rem;
 }
 
+.edit {
+  cursor: pointer;
+  color: #00aa00;
+}
+
 .delete {
   cursor: pointer;
+  color: #ff0000;
 }

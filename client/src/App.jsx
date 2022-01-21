@@ -10,15 +10,15 @@ function App() {
   // Retrieves All Previous Brews
   useEffect(() => {
     API.getBrews()
-    .then(data => setBrews(data))
-    .catch(err => console.error(err));
+      .then(data => setBrews(data))
+      .catch(err => console.error(err));
   }, []);
 
   // Submit Handler
   const handleSubmit = (e) => {
     let [ brewName, OG, FG ] = e.target;
 
-    const data = {
+    const brewData = {
       name: brewName.value,
       originalGrav: Number(OG.value).toFixed(3),
       finalGrav: Number(FG.value).toFixed(3),
@@ -26,9 +26,9 @@ function App() {
     };
     
     // Post and Set States
-    API.postBrew(data);
-    setAbv(data.abv);
-    setBrews([...brews, data]);
+    setAbv(brewData.abv);
+    API.postBrew(brewData)
+      .then(data => setBrews([...brews, data]));
 
     // Reset Values
     brewName.value = '';
@@ -37,10 +37,16 @@ function App() {
     e.preventDefault();
   }
 
+  // Edit Old Brew
+  const handleEdit = (oldBrew) => {
+    console.log(oldBrew);
+  }
+
   // Delete Previous Brew
   const handleDelete = (id) => {
     // Deletes from DB
     API.deleteBrew(id);
+    console.log(id);
 
     // Filters out of State
     setBrews((brews) => brews.filter(brew => brew._id !== id));
@@ -90,10 +96,13 @@ function App() {
                 <li key={ brew._id }>
                   <h3>{ brew.name }</h3>
                   <ul>
-                    <li>{ brew.originalGrav.toFixed(3) }</li>
-                    <li>{ brew.finalGrav.toFixed(3) }</li>
+                    <li>{ brew.originalGrav }</li>
+                    <li>{ brew.finalGrav }</li>
                     <li>{ brew.abv }%</li>
                   </ul>
+                  <h3
+                  className="edit"
+                  onClick={ () => handleEdit(brew) } >Edit</h3>
                   <h3 
                   className="delete"
                   onClick={ () => handleDelete(brew._id) } >X</h3>
