@@ -1,48 +1,35 @@
 /* eslint-disable import/no-anonymous-default-export */
+import axios from 'axios';
+
 export default {
   // Gets All Brew Data
   getBrews: () => {
-    return fetch('http://localhost:3001/api/brews').then(res => res.json());
+    return axios.get('/api/brews')
+    .then(res => res.data);
   },
   // Posts New Brew to DB
   postBrew: (data) => {
-    return fetch('http://localhost:3001/api/brews/new', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: data.name,
-        originalGrav: data.originalGrav,
-        finalGrav: data.finalGrav,
-        abv: data.abv
-      })
+    return axios.post('/api/brews/new', {
+      name: data.name,
+      originalGrav: data.originalGrav,
+      finalGrav: data.finalGrav,
+      abv: data.abv
     })
-      .then(res => res.json());
+      .then(res => res.data);
   },
   // Update Previous Brew Information
   updateBrew: (data) => {
-    return fetch(`http://localhost:3001/api/brews/update/${data.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: data.name,
-        originalGrav: data.originalGrav,
-        finalGrav: data.finalGrav,
-        abv: data.abv
-      })
+    return axios.put(`/api/brews/update/${data.id}`, {
+      name: data.name,
+      originalGrav: data.originalGrav,
+      finalGrav: data.finalGrav,
+      abv: data.abv
     })
-      .then(res => res.json())
       .catch(err => console.error(err));
   },
   // Remove Previous Brew from DB
   deleteBrew: (id) => {
-    return fetch(`http://localhost:3001/api/brews/remove/${id}`, {
-      method: 'DELETE'
-    })
-      .then(res => res.json())
+    return axios.delete(`/api/brews/remove/${id}`)
       .catch(err => console.error(err));
   }
 }

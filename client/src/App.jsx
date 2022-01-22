@@ -23,10 +23,10 @@ function App() {
     // Global Function Variables
     let [ brewName, OG, FG ] = e.target;
     
-    // Data Obj
+    // Data Object
     let brewData = {};
 
-    if(editState) {
+    if(editState.state) {
       // Put Data
       brewData = {
         id: editState.id,
