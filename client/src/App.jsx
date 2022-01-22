@@ -96,7 +96,7 @@ function App() {
     <div>
       <form 
       className="form"
-      onSubmit={ (e) => handleSubmit(e)}>
+      onSubmit={ (e) => handleSubmit(e) }>
         <div className="form-group">
           <label htmlFor="beer-name">Name of Beer:</label>
           <input 
