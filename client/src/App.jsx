@@ -14,7 +14,7 @@ function App() {
   // Retrieves All Previous Brews
   useEffect(() => {
     API.getBrews()
-      .then(data => setBrews(data))
+      .then(res => setBrews(res.data))
       .catch(err => console.error(err));
   }, []);
 
@@ -23,10 +23,10 @@ function App() {
     // Global Function Variables
     let [ brewName, OG, FG ] = e.target;
     
-    // Data Obj
+    // Data Object
     let brewData = {};
 
-    if(editState) {
+    if(editState.state) {
       // Put Data
       brewData = {
         id: editState.id,
@@ -56,7 +56,7 @@ function App() {
 
       // Post Brew to DB
       API.postBrew(brewData)
-        .then(data => setBrews([...brews, data]))
+        .then(res => setBrews([...brews, res.data]))
         .catch(err => console.error(err));
 
       // Change State Abv

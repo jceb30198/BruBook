@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const brewsController = require('../../controllers/brewsController');
 
-
 // Read
 // /api/brews/
 router.get('/', brewsController.getBrews);

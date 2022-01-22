@@ -1,32 +1,23 @@
 /* eslint-disable import/no-anonymous-default-export */
+import axios from 'axios';
+
 export default {
   // Gets All Brew Data
   getBrews: () => {
-    return fetch('/api/brews').then(res => res.json());
+    return axios.get('http://localhost:3001/api/brews');
   },
   // Posts New Brew to DB
   postBrew: (data) => {
-    return fetch('/api/brews/new', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: data.name,
-        originalGrav: data.originalGrav,
-        finalGrav: data.finalGrav,
-        abv: data.abv
-      })
-    })
-      .then(res => res.json());
+    return axios.post('http://localhost:3001/api/brews/new', {
+      name: data.name,
+      originalGrav: data.originalGrav,
+      finalGrav: data.finalGrav,
+      abv: data.abv
+    });
   },
   // Update Previous Brew Information
   updateBrew: (data) => {
-    return fetch(`/api/brews/update/${data.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json'
-      },
+    return axios.put(`http://localhost:3001/api/brews/update/${data.id}`, {
       body: JSON.stringify({
         name: data.name,
         originalGrav: data.originalGrav,
