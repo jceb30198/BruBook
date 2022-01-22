@@ -11,6 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+// Serve Static Assets for Heroku
+if (process.env.NODE_ENV = 'production') {
+  app.use(express.static('client/build'));
+}
+
 // Manages All Routes
 app.use(routes);
 
