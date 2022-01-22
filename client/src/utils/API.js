@@ -2,11 +2,11 @@
 export default {
   // Gets All Brew Data
   getBrews: () => {
-    return fetch('http://localhost:3001/api/brews').then(res => res.json());
+    return fetch('/api/brews').then(res => res.json());
   },
   // Posts New Brew to DB
   postBrew: (data) => {
-    return fetch('http://localhost:3001/api/brews/new', {
+    return fetch('/api/brews/new', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -22,7 +22,7 @@ export default {
   },
   // Update Previous Brew Information
   updateBrew: (data) => {
-    return fetch(`http://localhost:3001/api/brews/update/${data.id}`, {
+    return fetch(`/api/brews/update/${data.id}`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json'
@@ -39,7 +39,7 @@ export default {
   },
   // Remove Previous Brew from DB
   deleteBrew: (id) => {
-    return fetch(`http://localhost:3001/api/brews/remove/${id}`, {
+    return fetch(`/api/brews/remove/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
