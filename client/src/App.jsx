@@ -14,7 +14,7 @@ function App() {
   // Retrieves All Previous Brews
   useEffect(() => {
     API.getBrews()
-      .then(res => setBrews(res.data))
+      .then(data => setBrews(data))
       .catch(err => console.error(err));
   }, []);
 
@@ -56,7 +56,7 @@ function App() {
 
       // Post Brew to DB
       API.postBrew(brewData)
-        .then(res => setBrews([...brews, res.data]))
+        .then(data => setBrews([...brews, data]))
         .catch(err => console.error(err));
 
       // Change State Abv
