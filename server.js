@@ -22,7 +22,9 @@ app.use(routes);
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/brews', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
 })
   .then(() => console.log('Connected to Brews DB'))
   .catch(err => console.error(err));
