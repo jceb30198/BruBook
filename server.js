@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/brews', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/brubookDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

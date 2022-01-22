@@ -19,6 +19,8 @@ const beerSchema = new mongoose.Schema({
   abv: Number
 });
 
+// This is where the collection gets its name
+// An "S" is added to the end of the model name
 const Brew = mongoose.model('Brew', beerSchema);
 
 module.exports = Brew;
