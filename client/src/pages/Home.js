@@ -1,8 +1,7 @@
-import React from 'react';
-import { API } from './utils/API';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { API } from '../utils/API';
 
-function App() {
+function Home() {
   // State
   const [brews, setBrews] = useState([]);
   const [abv, setAbv] = useState(0);
@@ -155,5 +154,3 @@ function App() {
     </div>
   )
 }
-
-export default App;
