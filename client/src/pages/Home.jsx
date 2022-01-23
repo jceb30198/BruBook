@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Form from '../components/Form/Form';
 import { API } from '../utils/API';
 
-function Home() {
+export default function Home() {
   // State
   const [brews, setBrews] = useState([]);
   const [abv, setAbv] = useState(0);
