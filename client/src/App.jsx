@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import API from './utils/API';
+import { API } from './utils/API';
 import './App.css';
 
 function App() {

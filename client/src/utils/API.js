@@ -1,7 +1,6 @@
-/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 
-export default {
+export const API = {
   // Gets All Brew Data
   getBrews: () => {
     return axios.get('/api/brews')
