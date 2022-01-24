@@ -5,7 +5,10 @@ import { API } from '../utils/API';
 export default function Home() {
   // State
   const [brews, setBrews] = useState([]);
-  const [abv, setAbv] = useState(0);
+  const [display, setDisplay] = useState({
+    brewName: '',
+    abv: 0
+  });
   const [editState, setState] = useState({
     state:false,
     id: '' 
@@ -26,22 +29,34 @@ export default function Home() {
     // Data Object
     let brewData = {};
 
+    // Check Edit State
     if(editState.state) {
       // Put Data
       brewData = {
         id: editState.id,
         name: brewName.value,
-        originalGrav: Number(OG.value).toFixed(3),
-        finalGrav: Number(FG.value).toFixed(3),
+        originalGrav: Number(OG.value),
+        finalGrav: Number(FG.value),
         abv: ((Number(OG.value) - Number(FG.value)) * 131.25).toFixed(2)
       }
 
       // Update Brew in DB
       API.updateBrew(brewData);
 
+      // Update Brew in the Brews State
+      setBrews(brews.map((brew) => {
+        if (brew._id === editState.id) {
+          brew.name = brewData.name;
+          brew.originalGrav = brewData.originalGrav;
+          brew.finalGrav = brewData.finalGrav;
+          brew.abv = brewData.abv;
+        }
+        return brew;
+      }));
+      
       // Change out of Edit State
       setState({
-        state: true,
+        state: false,
         id: ''
       });
     } 
@@ -57,16 +72,20 @@ export default function Home() {
       // Post Brew to DB
       API.postBrew(brewData)
         .then(data => setBrews([...brews, data]))
-        .catch(err => console.error(err));
-
-      // Change State Abv
-      setAbv(brewData.abv);
-      
-      // Reset Values
-      OG.value = '';
-      FG.value = '';
-      e.preventDefault();
+        .catch(err => console.error(err));    
     }
+      
+    // Change Display State
+    setDisplay({
+      brewName: brewData.name,
+      abv: brewData.abv
+    });
+
+    // Reset Values
+    brewName.value = '';
+    OG.value = '';
+    FG.value = '';
+    e.preventDefault();
   }
 
   // Edit Old Brew
@@ -92,42 +111,23 @@ export default function Home() {
     setBrews((brews) => brews.filter(brew => brew._id !== id));
   }
 
+  // 5 Minute Timeout to Remove Display
+  setTimeout(() => {
+    setDisplay({
+      brewName: '',
+      abv: 0
+    })
+  }, 180000)
+
   return (
     <div>
-      <form 
-      className="form"
-      onSubmit={ (e) => handleSubmit(e) }>
-        <div className="form-group">
-          <label htmlFor="beer-name">Name of Beer:</label>
-          <input 
-          id="beer-name" 
-          name="Beer Name" 
-          type="text"
-          placeholder="Experimental Lager" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="original-gravity">Original Gravity (OG):</label>
-          <input
-          id="original-gravity"
-          name="Original Gravity"
-          type="number"
-          placeholder="1.050"
-          step="0.001" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="final-gravity">Final Gravity (FG):</label>
-          <input
-          id="final-gravity"
-          name="Final Gravity"
-          type="number"
-          placeholder="1.005"
-          step="0.001" />
-        </div>
-        <input type="submit" value="Calculate ABV"/>
-      </form>
+      <Form
+      handleSubmit = { handleSubmit } />
+      
       <div className="display-abv">
-        <h3>{ abv }%</h3>
+        { display.abv ? <h3>{ display.brewName }: { display.abv }</h3> : ''}
       </div>
+
       <div className="display-brews">
         <ul>
           {
