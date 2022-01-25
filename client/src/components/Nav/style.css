@@ -1,0 +1,13 @@
+header {
+  background-color: var(--light);
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+}
