@@ -1,13 +1,30 @@
 header {
-  background-color: var(--light);
+  height: 3rem;
 }
 
 .container {
+  border-bottom: 2px solid var(--light);
   width: 80%;
   margin: auto;
+  padding: 0.5rem 2rem;
+  color: var(--primary);
 }
 
-#main-nav {
+#flex-nav {
   display: flex;
   justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+ul li {
+  margin-left: 1.5rem;
+}
+
+ul li:hover {
+  color: var(--secondary)
 }
