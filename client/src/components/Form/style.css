@@ -1,7 +1,7 @@
 .form {
   max-width: 450px;
   height: 475px;
-  margin: 20vh auto 4rem auto;
+  margin: 3rem auto 0 auto;
   padding: 1rem;
   border-radius: 25px;
   background: var(--light);
@@ -39,5 +39,10 @@ form > input {
   height: 2.5rem;
   width: 75%;
   background-color: var(--dark);
-  color: var(--primary)
+  color: var(--primary);
+  cursor: pointer;
+}
+
+form > input:focus {
+  color: var(--secondary);
 }
