@@ -16,6 +16,10 @@ body {
   background-color: var(--dark);
 }
 
+.app-grid {
+  
+}
+
 .display-abv {
   text-align: center;
   color: var(--primary);

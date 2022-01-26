@@ -15,16 +15,16 @@ header {
   justify-content: space-between;
 }
 
-ul {
+#flex-nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
 
-ul li {
+#flex-nav ul li {
   margin-left: 1.5rem;
 }
 
-ul li:hover {
+#flex-nav ul li:hover {
   color: var(--secondary);
 }
