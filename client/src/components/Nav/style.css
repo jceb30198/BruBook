@@ -26,5 +26,5 @@ ul li {
 }
 
 ul li:hover {
-  color: var(--secondary)
+  color: var(--secondary);
 }

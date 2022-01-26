@@ -11,10 +11,10 @@ export default function Home() {
     abv: 0
   });
   const [editState, setState] = useState({
-    state:false,
-    id: '' 
+    state: false,
+    id: ''
   });
-  
+
   // Retrieves All Previous Brews
   useEffect(() => {
     API.getBrews()
@@ -25,13 +25,13 @@ export default function Home() {
   // Submit Handler
   const handleSubmit = (e) => {
     // Global Function Variables
-    let [ brewName, OG, FG ] = e.target;
-    
+    let [brewName, OG, FG] = e.target;
+
     // Data Object
     let brewData = {};
 
     // Check Edit State
-    if(editState.state) {
+    if (editState.state) {
       // Put Data
       brewData = {
         id: editState.id,
@@ -54,13 +54,13 @@ export default function Home() {
         }
         return brew;
       }));
-      
+
       // Change out of Edit State
       setState({
         state: false,
         id: ''
       });
-    } 
+    }
     else {
       // Post Data
       brewData = {
@@ -73,9 +73,9 @@ export default function Home() {
       // Post Brew to DB
       API.postBrew(brewData)
         .then(data => setBrews([...brews, data]))
-        .catch(err => console.error(err));    
+        .catch(err => console.error(err));
     }
-      
+
     // Change Display State
     setDisplay({
       brewName: brewData.name,
@@ -123,36 +123,39 @@ export default function Home() {
   return (
     <div>
       <Nav />
-      <Form
-      handleSubmit = { handleSubmit } />
-      
-      <div className="display-abv">
-        { display.abv ? <h3>{ display.brewName }: { display.abv }</h3> : ''}
-      </div>
+      <div className="app-grid">
 
-      <div className="display-brews">
-        <ul>
-          {
-            brews.map((brew) => {
-              return (
-                <li key={ brew._id }>
-                  <h3>{ brew.name }</h3>
-                  <ul>
-                    <li>{ brew.originalGrav.toFixed(3) }</li>
-                    <li>{ brew.finalGrav.toFixed(3) }</li>
-                    <li>{ brew.abv }%</li>
-                  </ul>
-                  <h3
-                  className="edit"
-                  onClick={ () => handleEdit(brew) } >Edit</h3>
-                  <h3 
-                  className="delete"
-                  onClick={ () => handleDelete(brew._id) } >X</h3>
-                </li>
-              )
-            })
-          }
-        </ul>
+        <Form
+          handleSubmit={handleSubmit} />
+
+        <div className="display-abv">
+          {display.abv ? <h3>{display.brewName}: {display.abv}</h3> : ''}
+        </div>
+
+        <div className="display-brews">
+          <ul>
+            {
+              brews.map((brew) => {
+                return (
+                  <li key={brew._id}>
+                    <h3>{brew.name}</h3>
+                    <ul>
+                      <li>{brew.originalGrav.toFixed(3)}</li>
+                      <li>{brew.finalGrav.toFixed(3)}</li>
+                      <li>{brew.abv}%</li>
+                    </ul>
+                    <h3
+                      className="edit"
+                      onClick={() => handleEdit(brew)} >Edit</h3>
+                    <h3
+                      className="delete"
+                      onClick={() => handleDelete(brew._id)} >X</h3>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
       </div>
     </div>
   )
