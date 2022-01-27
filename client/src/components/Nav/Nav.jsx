@@ -6,13 +6,18 @@ import './style.css';
 export default function Nav() {
   return (
     <header>
-      <div className='container'>
+      <div className='nav-container'>
         <nav id='flex-nav'>
           <FontAwesomeIcon icon={ faBeer } size='2x' />
           <ul>
-            <li>Home</li>
-            <li>IBU</li>
-            <li>SRM</li>
+            <li className='dropdown'>
+              <a>Home</a>
+              <ul>
+                <li><a>ABV Calculator</a></li>
+              </ul>
+            </li>
+            <li><a>Brews</a></li>
+            <li><a>Log Out</a></li>
           </ul>
         </nav>
       </div>

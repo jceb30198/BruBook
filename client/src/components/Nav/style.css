@@ -2,7 +2,7 @@ header {
   height: 3rem;
 }
 
-.container {
+.nav-container {
   border-bottom: 2px solid var(--light);
   width: 80%;
   margin: auto;
@@ -23,8 +23,15 @@ header {
 
 #flex-nav ul li {
   margin-left: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#flex-nav ul li a {
+  text-decoration: none;
 }
 
 #flex-nav ul li:hover {
   color: var(--secondary);
+  cursor: pointer;
 }

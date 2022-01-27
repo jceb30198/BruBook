@@ -140,18 +140,18 @@ export default function Home() {
               brews.map((brew) => {
                 return (
                   <li key={brew._id}>
-                    <ul>
-                      <li><h3>{brew.name}</h3></li>
-                      <li>{brew.originalGrav.toFixed(3)}</li>
-                      <li>{brew.finalGrav.toFixed(3)}</li>
-                      <li>{brew.abv}%</li>
-                    </ul>
-                    <h3
+
+                    <li><h3>{brew.name}</h3></li>
+                    <li>{brew.originalGrav.toFixed(3)}</li>
+                    <li>{brew.finalGrav.toFixed(3)}</li>
+                    <li>{brew.abv}%</li>
+
+                    <li
                       className="edit"
-                      onClick={() => handleEdit(brew)} >Edit</h3>
-                    <h3
+                      onClick={() => handleEdit(brew)} >Edit</li>
+                    <li
                       className="delete"
-                      onClick={() => handleDelete(brew._id)} >X</h3>
+                      onClick={() => handleDelete(brew._id)} >X</li>
                   </li>
                 )
               })
