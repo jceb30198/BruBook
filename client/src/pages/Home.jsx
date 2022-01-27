@@ -130,7 +130,7 @@ export default function Home() {
             handleSubmit={handleSubmit} />
 
           <div className="display-abv">
-            {display.abv ? <h3>{display.brewName}: {display.abv}%</h3> : ''}
+            {display.brewName !== '' ? <h3>{display.brewName}: {display.abv}%</h3> : ''}
           </div>
         </div>
 
