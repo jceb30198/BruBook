@@ -18,6 +18,7 @@ body {
 
 .app-grid {
   display: grid;
+  margin: 3rem 1rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -28,18 +29,30 @@ body {
   margin: 2rem;
 }
 
+/* Display for Brews */
 .display-brews {
-  margin: 3rem auto;
-  color: var(--secondary);
-  width: 300px;
-  height: 100%;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
 }
 
-.display-brews ul > li {
-  list-style: none;
-  text-align: center;
+.display-brews ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 15px;
   background: var(--light);
-  margin-top: 0.5rem;
+}
+
+.display-brews ul li:hover {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 15px;
+  color: var(--secondary);
 }
 
 .edit {
