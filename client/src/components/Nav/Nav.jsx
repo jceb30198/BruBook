@@ -10,14 +10,9 @@ export default function Nav() {
         <nav id='flex-nav'>
           <FontAwesomeIcon icon={ faBeer } size='2x' />
           <ul>
-            <li className='dropdown'>
-              <a>Home</a>
-              <ul>
-                <li><a>ABV Calculator</a></li>
-              </ul>
-            </li>
+            <li><a>ABV Calc</a></li>
+            <li><a>IBU Calc</a></li>
             <li><a>Brews</a></li>
-            <li><a>Log Out</a></li>
           </ul>
         </nav>
       </div>
