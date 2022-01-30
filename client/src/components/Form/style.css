@@ -39,12 +39,12 @@ form > input {
   height: 2.5rem;
   width: 75%;
   background-color: var(--dark);
-  color: var(--primary);
+  color: var(--secondary);
   cursor: pointer;
   transition: all 1s ease;
 }
 
 form > input:hover {
-  color: var(--dark);
-  background-color: var(--secondary);
+  color: var(--primary);
+  border: 5px var(--secondary) solid;
 }
