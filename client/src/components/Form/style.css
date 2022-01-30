@@ -41,8 +41,10 @@ form > input {
   background-color: var(--dark);
   color: var(--primary);
   cursor: pointer;
+  transition: all 1s ease;
 }
 
-form > input:focus {
-  color: var(--secondary);
+form > input:hover {
+  color: var(--dark);
+  background-color: var(--secondary);
 }
