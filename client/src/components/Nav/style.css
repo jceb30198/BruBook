@@ -7,12 +7,16 @@ header {
   width: 80%;
   margin: auto;
   padding: 0.5rem 2rem;
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 #flex-nav {
   display: flex;
   justify-content: space-between;
+}
+
+#flex-nav > :first-child {
+  color: var(--primary);
 }
 
 #flex-nav ul {
@@ -25,13 +29,16 @@ header {
   margin-left: 1.5rem;
   position: relative;
   display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: all 1s ease;
 }
 
 #flex-nav ul li a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 #flex-nav ul li:hover {
-  color: var(--secondary);
-  cursor: pointer;
+  color: var(--primary);
+  border-color: var(--primary);
 }
