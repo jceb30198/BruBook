@@ -140,10 +140,10 @@ export default function Home() {
               brews.map((brew) => {
                 return (
                   <li key={brew._id}>
-                    <li><h3>{brew.name}</h3></li>
-                    <li>{brew.originalGrav.toFixed(3)}</li>
-                    <li>{brew.finalGrav.toFixed(3)}</li>
-                    <li>{brew.abv}%</li>
+                    <h3>{brew.name}</h3>
+                    <p>{brew.originalGrav.toFixed(3)}</p>
+                    <p>{brew.finalGrav.toFixed(3)}</p>
+                    <p>{brew.abv}%</p>
                     <li
                       className="edit"
                       onClick={() => handleEdit(brew)} >Edit</li>
