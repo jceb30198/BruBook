@@ -118,23 +118,23 @@ export default function Home() {
       brewName: '',
       abv: 0
     })
-  }, 180000)
+  }, 300000)
 
   return (
     <div>
       <Nav />
       <div className="app-grid">
 
-        <div className="grid-item">
+        <main>
           <Form
             handleSubmit={handleSubmit} />
 
           <div className="display-abv">
             {display.brewName !== '' ? <h3>{display.brewName}: {display.abv}%</h3> : ''}
           </div>
-        </div>
+        </main>
 
-        <div className="display-brews grid-item">
+        <section className="display-brews">
           <ul>
             {
               brews.map((brew) => {
@@ -144,18 +144,18 @@ export default function Home() {
                     <p>{brew.originalGrav.toFixed(3)}</p>
                     <p>{brew.finalGrav.toFixed(3)}</p>
                     <p>{brew.abv}%</p>
-                    <li
-                      className="edit"
-                      onClick={() => handleEdit(brew)} >Edit</li>
-                    <li
-                      className="delete"
-                      onClick={() => handleDelete(brew._id)} >X</li>
+                    <a
+                      className="edit btn"
+                      onClick={() => handleEdit(brew)} >Edit</a>
+                    <a
+                      className="delete btn"
+                      onClick={() => handleDelete(brew._id)} >X</a>
                   </li>
                 )
               })
             }
           </ul>
-        </div>
+        </section>
       </div>
     </div>
   )
