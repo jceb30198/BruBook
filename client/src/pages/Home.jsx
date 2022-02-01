@@ -144,12 +144,12 @@ export default function Home() {
                     <p>{brew.originalGrav.toFixed(3)}</p>
                     <p>{brew.finalGrav.toFixed(3)}</p>
                     <p>{brew.abv}%</p>
-                    <a
+                    <button
                       className="edit btn"
-                      onClick={() => handleEdit(brew)} >Edit</a>
-                    <a
+                      onClick={() => handleEdit(brew)} >Edit</button>
+                    <button
                       className="delete btn"
-                      onClick={() => handleDelete(brew._id)} >X</a>
+                      onClick={() => handleDelete(brew._id)} >X</button>
                   </li>
                 )
               })

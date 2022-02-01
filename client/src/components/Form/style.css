@@ -41,7 +41,7 @@ form > input {
   background-color: var(--dark);
   color: var(--secondary);
   cursor: pointer;
-  transition: all 1s ease;
+  transition: all 500ms ease-in;
 }
 
 form > input:hover {
