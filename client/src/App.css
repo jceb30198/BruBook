@@ -18,7 +18,9 @@ body {
 
 .app-grid {
   display: grid;
-  margin: 3rem 1rem;
+  gap: 3rem;
+  margin: 3rem auto;
+  width: 1370px;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -31,16 +33,19 @@ body {
 
 /* Display for Brews */
 .display-brews {
-  border: 1px solid var(--primary);
-  border-radius: 5px;
+  border: 5px solid var(--primary);
+  border-right: transparent;
+  border-left: transparent;
+  border-radius: 1rem;
+  transition: all 500ms ease;
 }
 
 .display-brews ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 10px;
-  margin: 5px;
+  padding: 0.25rem 1rem;
+  margin: 0.5rem;
   border-radius: 15px;
   background: var(--light);
   transition: all 500ms ease;
@@ -48,16 +53,28 @@ body {
 
 .display-brews ul li:hover {
   transform: scaleY(1.1) scaleX(1.1);
-  margin: 1rem;
+  margin: 1rem auto;
   color: var(--secondary);
 }
 
-.edit {
+.btn {
   cursor: pointer;
+  background: var(--dark);
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
+  transition: all 500ms ease-in;
+  border: none;
+}
+
+.btn:hover {
+  color: var(--secondary);
+  background: var(--light);
+}
+
+.edit {
   color: #00aa00;
 }
 
 .delete {
-  cursor: pointer;
   color: #ff0000;
 }

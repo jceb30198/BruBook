@@ -11,7 +11,6 @@ export default function Nav() {
           <FontAwesomeIcon icon={ faBeer } size='2x' />
           <ul>
             <li><a>ABV Calc</a></li>
-            <li><a>IBU Calc</a></li>
             <li><a>Brews</a></li>
           </ul>
         </nav>
