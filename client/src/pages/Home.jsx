@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../components/Form/Form';
-import Nav from '../components/Nav/Nav';
+// import Nav from '../components/Nav/Nav';
 import { API } from '../utils/API';
 
 export default function Home() {
@@ -122,7 +122,6 @@ export default function Home() {
 
   return (
     <div>
-      <Nav />
       <div className="app-grid">
 
         <main>
