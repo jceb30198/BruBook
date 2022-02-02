@@ -10,6 +10,11 @@ header {
   color: var(--secondary);
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 #flex-nav {
   display: flex;
   justify-content: space-between;
@@ -33,12 +38,15 @@ header {
   transition: all 1s ease;
 }
 
-#flex-nav ul li a {
+.link {
   text-decoration: none;
   cursor: pointer;
+  color: var(--secondary);
+  transition: all 1s ease;
 }
 
-#flex-nav ul li:hover {
+#flex-nav ul li:hover,
+.link:hover {
   color: var(--primary);
   border-color: var(--primary);
 }
