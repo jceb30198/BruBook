@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeer } from '@fortawesome/free-solid-svg-icons'
 import './style.css';
 
 export default function Nav() {
-  let params = useParams();
-
-  console.log(params)
   return (
     <header>
       <div className='nav-container'>
@@ -17,8 +14,8 @@ export default function Nav() {
           <h2>BruBook</h2>
           </div>
           <ul>
-            <li><Link className='link' to='/'>ABV Calc</Link></li>
-            <li><Link className='link' to='/brewd'>BrewD</Link></li>
+            <li><NavLink className='link' to='/'>ABV Calc</NavLink></li>
+            <li><NavLink className='link' to='/brewd'>BrewD</NavLink></li>
           </ul>
         </nav>
       </div>
