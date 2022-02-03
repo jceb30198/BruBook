@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeer } from '@fortawesome/free-solid-svg-icons'
 import './style.css';
 
 export default function Nav() {
+  let params = useParams();
+
+  console.log(params)
   return (
     <header>
       <div className='nav-container'>
