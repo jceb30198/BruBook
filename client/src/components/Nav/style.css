@@ -30,19 +30,21 @@ header {
   list-style-type: none;
 }
 
-#flex-nav ul li {
+.link {
   margin-left: 1.5rem;
   position: relative;
   display: inline-block;
   border-bottom: 2px solid transparent;
   transition: all 1s ease;
-}
-
-.link {
   text-decoration: none;
   cursor: pointer;
   color: var(--secondary);
   transition: all 1s ease;
+}
+
+.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
 }
 
 #flex-nav ul li:hover,

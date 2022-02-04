@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../components/Form/Form';
-// import Nav from '../components/Nav/Nav';
 import { API } from '../utils/API';
 
 export default function Home() {
