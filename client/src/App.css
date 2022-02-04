@@ -20,8 +20,17 @@ body {
   display: grid;
   gap: 3rem;
   margin: 3rem auto;
-  width: 1370px;
+  max-width: 1370px;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.brewd-container {
+  border-top: 5px solid var(--primary);
+  border-bottom: 5px solid var(--primary);
+  border-radius: 1rem;
+  max-width: 1200px;
+  min-height: 1rem;
+  margin: 2rem auto;
 }
 
 .display-abv {
@@ -33,9 +42,8 @@ body {
 
 /* Display for Brews */
 .display-brews {
-  border: 5px solid var(--primary);
-  border-right: transparent;
-  border-left: transparent;
+  border-top: 5px solid var(--primary);
+  border-bottom: 5px solid var(--primary);
   border-radius: 1rem;
   transition: all 500ms ease;
 }
