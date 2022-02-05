@@ -24,13 +24,42 @@ body {
   grid-template-columns: repeat(2, 1fr);
 }
 
+/* Brewd Page Container */
 .brewd-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
   border-top: 5px solid var(--primary);
   border-bottom: 5px solid var(--primary);
   border-radius: 1rem;
   max-width: 1200px;
   min-height: 1rem;
   margin: 2rem auto;
+}
+
+.grid-item {
+  background-color: var(--light);
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  line-height: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: all 500ms ease;
+}
+
+.grid-item :last-child {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.grid-item:hover {
+  color: var(--secondary);
+  transform: scale(1.1);
 }
 
 .display-abv {
@@ -40,7 +69,7 @@ body {
   margin: 2rem;
 }
 
-/* Display for Brews */
+/* Display for Brews on Home Page */
 .display-brews {
   border-top: 5px solid var(--primary);
   border-bottom: 5px solid var(--primary);
@@ -60,7 +89,7 @@ body {
 }
 
 .display-brews ul li:hover {
-  transform: scaleY(1.1) scaleX(1.1);
+  transform: scale(1.1);
   margin: 1rem auto;
   color: var(--secondary);
 }
