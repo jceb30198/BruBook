@@ -4,7 +4,6 @@ import { API } from '../utils/API'
 export default function Brewd() {
   const [brews, setBrews] = useState([]);
 
-  console.log(brews);
   useEffect(() => {
     API.getBrews()
       .then(data => setBrews(data))
@@ -14,7 +13,17 @@ export default function Brewd() {
   return (
     <main>
       <div className="brewd-container">
-        
+        {brews.map((brew) => {
+          return (
+            <div className="grid-item">
+              <h3>{brew.name}</h3>
+              <p>Original Gravity: {brew.originalGrav}</p>
+              <p>Final Gravity: {brew.finalGrav}</p>
+              <p>ABV: {brew.abv}%</p>
+              <button className="btn delete">X</button>
+            </div>
+          )
+        })}
       </div>
     </main>
   )
