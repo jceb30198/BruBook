@@ -16,12 +16,46 @@ body {
   background-color: var(--dark);
 }
 
+/* Home Page Grid and Display */
 .app-grid {
   display: grid;
   gap: 3rem;
   margin: 3rem auto;
   max-width: 1370px;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.display-abv {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.display-brews {
+  border-top: 5px solid var(--primary);
+  border-bottom: 5px solid var(--primary);
+  border-radius: 1rem;
+  max-width: 500px;
+  transition: all 500ms ease;
+}
+
+.display-brews ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  margin: 0.5rem auto;
+  border-radius: 15px;
+  width: 95%;
+  background: var(--light);
+  transition: all 500ms ease;
+}
+
+.display-brews ul li:hover {
+  transform: scale(1.1);
+  margin: 1rem auto;
+  color: var(--secondary);
 }
 
 /* Brewd Page Container */
@@ -33,7 +67,7 @@ body {
   border-top: 5px solid var(--primary);
   border-bottom: 5px solid var(--primary);
   border-radius: 1rem;
-  max-width: 1200px;
+  max-width: 1000px;
   min-height: 1rem;
   margin: 2rem auto;
 }
@@ -62,38 +96,7 @@ body {
   transform: scale(1.1);
 }
 
-.display-abv {
-  text-align: center;
-  color: var(--primary);
-  font-size: 2rem;
-  margin: 2rem;
-}
-
-/* Display for Brews on Home Page */
-.display-brews {
-  border-top: 5px solid var(--primary);
-  border-bottom: 5px solid var(--primary);
-  border-radius: 1rem;
-  transition: all 500ms ease;
-}
-
-.display-brews ul li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.25rem 1rem;
-  margin: 0.5rem;
-  border-radius: 15px;
-  background: var(--light);
-  transition: all 500ms ease;
-}
-
-.display-brews ul li:hover {
-  transform: scale(1.1);
-  margin: 1rem auto;
-  color: var(--secondary);
-}
-
+/* Utility Classes */
 .btn {
   cursor: pointer;
   background: var(--dark);

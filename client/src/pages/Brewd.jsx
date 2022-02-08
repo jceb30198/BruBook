@@ -27,9 +27,9 @@ export default function Brewd() {
           return (
             <div className="grid-item">
               <h3>{brew.name}</h3>
-              <p>Original Gravity: {brew.originalGrav}</p>
-              <p>Final Gravity: {brew.finalGrav}</p>
-              <p>ABV: {brew.abv}%</p>
+              <p>Original Gravity: {brew.originalGrav.toFixed(3)}</p>
+              <p>Final Gravity: {brew.finalGrav.toFixed(3)}</p>
+              <p>ABV: {brew.abv.toFixed(2)}%</p>
               <button 
               className="btn delete"
               onClick={() => handoleDelete(brew._id)}>X</button>
