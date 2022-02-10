@@ -44,7 +44,16 @@ form > input {
   transition: all 500ms ease-in;
 }
 
-form > input:hover {
-  color: var(--primary);
-  border: 5px var(--secondary) solid;
+/* Laptops and Screens */
+@media(min-width: 1240px) {
+  form > input:hover {
+    color: var(--primary);
+    border: 5px var(--secondary) solid;
+  }
+}
+
+@media(max-width: 1200px) {
+  form > input:active {
+    color: var(--primary);
+  }
 }
