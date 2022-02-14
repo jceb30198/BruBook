@@ -45,14 +45,15 @@ form > input {
 }
 
 /* Laptops and Screens */
-@media(min-width: 1240px) {
+@media only screen and (width > 1200px) {
   form > input:hover {
     color: var(--primary);
     border: 5px var(--secondary) solid;
   }
 }
 
-@media(max-width: 1200px) {
+/* Tablets */
+@media (max-width: 1400px) and (orientation: landscape) {
   form > input:active {
     color: var(--primary);
   }
