@@ -91,11 +91,6 @@ body {
   right: 0.5rem;
 }
 
-.grid-item:hover {
-  color: var(--secondary);
-  transform: scale(1.1);
-}
-
 /* Utility Classes */
 .btn {
   cursor: pointer;
@@ -106,15 +101,29 @@ body {
   border: none;
 }
 
-.btn:hover {
-  color: var(--secondary);
-  background: var(--light);
-}
-
 .edit {
   color: #00aa00;
 }
 
 .delete {
   color: #ff0000;
+}
+
+/* Desktops, Laptops, Screens */
+@media only screen and (min-width: 1200px) {
+  /* Brewd Page */
+  .grid-item:hover {
+    color: var(--secondary);
+    transform: scale(1.1);
+  }
+
+  .btn:hover {
+    color: var(--secondary);
+    background: var(--light);
+  }
+}
+
+/* Tablets */
+@media(max-width: ) {
+  
 }
