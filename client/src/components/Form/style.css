@@ -53,8 +53,9 @@ form > input {
 }
 
 /* Tablets */
-@media (max-width: 1400px) and (orientation: landscape) {
+@media (max-width: 1190px) and (orientation: landscape) {
   form > input:active {
     color: var(--primary);
+    transition: all 250ms ease-in;
   }
 }

@@ -124,6 +124,23 @@ body {
 }
 
 /* Tablets */
-@media(max-width: ) {
-  
+@media (max-width: 1190px) and (orientation: landscape) {
+  .grid-item {
+    transition: all 250ms ease;
+  }
+
+  .grid-item:active {
+    color: var(--secondary);
+    transform: scale(1.1);
+  }
+
+  .display-brews ul li {
+    transition: all 250ms ease;
+  }
+
+  .display-brews ul li:active {
+    transform: scale(1.1);
+    margin: 1rem auto;
+    color: var(--secondary);
+  }
 }
